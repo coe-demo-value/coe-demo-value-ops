@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: coe-demo-value
+  namespace: argocd
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+  - host: "www.abc.com" # 변경필요
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: coe-demo-value
+            port:
+              number: 80
+  tls: []
+  #  - caCertificate: |-
+  #      -----BEGIN CERTIFICATE-----
+  #      MIIG1zCCBb+gAwIBAgIRAIZPYQZCKrU41i4AtcVraEEwDQYJKoZIhvcNAQELBQAw
+  #
+  # kubernetes(accordian)에서는 secret으로 생성하고 secret 명칭으로 입력한다.
