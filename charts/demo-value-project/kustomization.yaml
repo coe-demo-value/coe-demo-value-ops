@@ -6,3 +6,6 @@ resources:
 - configmap.yaml
 - secret.yaml
 - ingress.yaml
+images:
+- name: cicdtestregistry.azurecr.io/coe-demo-value/demo-value-project
+  newTag: "20240919112009"
